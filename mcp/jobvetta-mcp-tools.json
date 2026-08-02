@@ -1,0 +1,46 @@
+{
+  "source": "https://api.jobvetta.com/mcp",
+  "captured": "2026-08-02",
+  "tools": [
+    {
+      "name": "search_jobs",
+      "description": "Search live job openings across India, checked at official employer sources. India only \u2014 non-Indian locations return no results. Returns up to 20 jobs per call with title, company, location, and a jobvetta URL.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "string",
+            "description": "Role, skill, or company keywords"
+          },
+          "location": {
+            "type": "string",
+            "description": "Indian city, town, or state (India only)"
+          },
+          "days": {
+            "type": "number",
+            "description": "Only jobs posted within the last N days (e.g. 2)"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max results (1-20, default 10)"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_job",
+      "description": "Full details for one job (description, qualifications, salary, metadata) by job_id from search_jobs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "job_id"
+        ]
+      }
+    }
+  ]
+}

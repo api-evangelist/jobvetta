@@ -1,0 +1,107 @@
+name: Jobvetta
+description: >-
+  Jobvetta is a jobs API for India — live openings gathered and checked against official employer
+  sources, exposed as a REST API and a hosted MCP server that share one key. Search by keyword,
+  Indian city or state, and posting age; fetch full structured detail for a single job. It is
+  India-only by design: non-Indian locations return no results. The MCP server answers tools/list
+  without credentials, so an agent can discover the two tools before signing up, and installation
+  is a single documented `claude mcp add` command. Free during early access, with a shared limit of
+  50 tool calls per day and up to 20 jobs per search across both surfaces.
+url: https://jobvetta.apievangelist.com/apis.yml
+created: '2026-08-02'
+modified: '2026-08-02'
+specificationVersion: '0.21'
+tags:
+  - Jobs
+  - Recruitment
+  - Job Search
+  - India
+  - Employment
+  - MCP
+  - Agent-native
+  - Developer Tools
+apis:
+  - name: Jobvetta REST API
+    description: >-
+      REST access to live, vetted India job openings. `GET /jobs` searches by keyword (`q`), Indian
+      city or state (`location`), posting age in days (`days`, 1–365) and result count (`limit`,
+      1–20, default 10); a companion call returns full structured detail for one job. Authenticates
+      with a bearer token in the Authorization header. Verified live — an unauthenticated call
+      returns HTTP 401 with a JSON error pointing at the dashboard.
+    humanURL: https://www.jobvetta.com/api
+    baseURL: https://api.jobvetta.com/v1
+    tags:
+      - Jobs
+      - Job Search
+      - Recruitment
+      - India
+    properties:
+      - type: Documentation
+        url: https://www.jobvetta.com/api
+      - type: SignUp
+        url: https://www.jobvetta.com/dashboard
+  - name: Jobvetta MCP Server
+    description: >-
+      Hosted MCP server over Streamable HTTP with two tools — `search_jobs` (q, location, days,
+      limit) and `get_job` (job_id). Discovery is public: tools/list answers without credentials,
+      so a client can enumerate the tools before holding a key. A key is needed only to run them,
+      and the same key covers the REST API.
+    humanURL: https://www.jobvetta.com/mcp
+    baseURL: https://api.jobvetta.com/mcp
+    tags:
+      - MCP
+      - Agent-native
+      - Jobs
+      - India
+    properties:
+      - type: MCP
+        url: https://api.jobvetta.com/mcp
+      - type: MCPTools
+        url: mcp/jobvetta-mcp-tools.json
+      - type: Documentation
+        url: https://www.jobvetta.com/mcp
+common:
+  - type: Website
+    url: https://www.jobvetta.com
+  - type: Documentation
+    url: https://www.jobvetta.com/api
+  - type: SignUp
+    url: https://www.jobvetta.com/dashboard
+maintainers:
+  - FN: Jobvetta
+    url: https://www.jobvetta.com
+x-evidence:
+  harvested: '2026-08-02'
+  request: apis.io add form, parked 2026-07-24
+  probes:
+    - https://api.jobvetta.com/v1/jobs -> HTTP 401, application/json, "Invalid or missing API key"
+    - https://api.jobvetta.com/mcp tools/list -> HTTP 200, 2 tools, no credentials required
+    - https://www.jobvetta.com/api -> HTTP 200, documents base URL, bearer auth and parameters
+    - https://www.jobvetta.com/mcp -> HTTP 200, documents both tools and the install command
+    - https://www.jobvetta.com/nonexistent-xyz789 -> HTTP 404, 57 bytes (no catch-all)
+    - https://api.jobvetta.com/openapi.json -> HTTP 404
+    - https://www.jobvetta.com/llms.txt -> HTTP 404
+    - https://api.jobvetta.com/.well-known/mcp.json -> HTTP 404
+  parked_in_error: >-
+    The add-API pipeline parked this submission on 2026-07-24 at confidence 5 with reason
+    `no_consumable_surface`. That is wrong. The API is live and enforcing auth, the MCP server is
+    hosted and answers tools/list unauthenticated, and both are documented with base URL, auth
+    scheme and per-parameter tables. What is missing is a machine-readable OpenAPI — the gate
+    appears unable to recognise an API that is documented in HTML but not specified. Same failure
+    class as the Torry Harris parking. See api-evangelist/roadmap#3.
+  defects_found:
+    no_openapi: >-
+      No OpenAPI document is published. The REST surface is documented only in HTML, so there is
+      nothing machine-readable to harvest, score for contract depth, or generate clients from.
+      This is the single highest-leverage thing they could add.
+    no_llms_txt: >-
+      No llms.txt, and no MCP server card at /.well-known/mcp.json, despite the docs referring to a
+      "server card". Discovery works through tools/list alone.
+  not_asserted:
+    pricing: >-
+      "Free during early access" with a stated shared limit of 50 tool calls per day and 20 jobs
+      per search. No machine-readable rate card or plan document exists, so plans and rate limits
+      are not asserted as artifacts.
+  note: >-
+    Recovered from the parked queue rather than submitted twice. The MCP property is emitted
+    because the endpoint is hosted and reachable, not a local install.
