@@ -54,7 +54,7 @@ apis:
       - Jobs
       - India
     properties:
-      - type: MCP
+      - type: MCPServer
         url: https://api.jobvetta.com/mcp
       - type: MCPTools
         url: mcp/jobvetta-mcp-tools.json
