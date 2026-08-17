@@ -7,7 +7,7 @@ description: >-
   without credentials, so an agent can discover the two tools before signing up, and installation
   is a single documented `claude mcp add` command. Free during early access, with a shared limit of
   50 tool calls per day and up to 20 jobs per search across both surfaces.
-url: https://jobvetta.apievangelist.com/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/jobvetta/refs/heads/main/apis.yml
 created: '2026-08-02'
 modified: '2026-08-02'
 specificationVersion: '0.21'
