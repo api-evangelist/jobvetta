@@ -12,6 +12,15 @@ created: '2026-08-02'
 modified: '2026-08-02'
 specificationVersion: '0.23'
 tags:
+  - Job
+  - Recruitment
+  - Job Search
+  - India
+  - Employment
+  - MCP
+  - agent-native
+  - Developer Tools
+tags_raw:
   - Jobs
   - Recruitment
   - Job Search
@@ -31,6 +40,11 @@ apis:
     humanURL: https://www.jobvetta.com/api
     baseURL: https://api.jobvetta.com/v1
     tags:
+      - Job
+      - Job Search
+      - Recruitment
+      - India
+    tags_raw:
       - Jobs
       - Job Search
       - Recruitment
@@ -49,6 +63,11 @@ apis:
     humanURL: https://www.jobvetta.com/mcp
     baseURL: https://api.jobvetta.com/mcp
     tags:
+      - MCP
+      - agent-native
+      - Job
+      - India
+    tags_raw:
       - MCP
       - Agent-native
       - Jobs
