@@ -29,7 +29,7 @@ tags:
   - India
   - Employment
   - MCP
-  - Agent-native
+  - agent-native
   - Developer Tools
 tags_raw:
   - Jobs
@@ -75,7 +75,7 @@ apis:
     baseURL: https://api.jobvetta.com/mcp
     tags:
       - MCP
-      - Agent-native
+      - agent-native
       - Job
       - India
     tags_raw:
