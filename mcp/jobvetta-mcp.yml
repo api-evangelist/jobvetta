@@ -1,0 +1,23 @@
+generated: '2026-09-11'
+method: probed
+source: https://api.jobvetta.com/mcp
+status: published
+server:
+  name: jobvetta
+  transport: http
+  url: https://api.jobvetta.com/mcp
+deployment:
+  mode: remote
+  endpoint: https://api.jobvetta.com/mcp
+  verified: probed
+  probe: live
+  checked: '2026-09-11'
+  source: ptr_only reconciliation 2026-09-11 (apis.yml pointed here, no manifest existed)
+tools_count: 2
+tools:
+- name: search_jobs
+  description: ''
+- name: get_job
+  description: ''
+tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
+authorship: provider
