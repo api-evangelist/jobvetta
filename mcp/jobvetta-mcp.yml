@@ -16,8 +16,13 @@ deployment:
 tools_count: 2
 tools:
 - name: search_jobs
-  description: ''
+  description: Search live job openings across India, checked at official employer sources. India only
+    — non-Indian locations return no results. Returns up to 10 jobs per call with title, company, location,
+    and a jobvetta URL.
 - name: get_job
-  description: ''
+  description: Full details for one job (description, qualifications, salary, metadata) by job_id from
+    search_jobs.
 tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
