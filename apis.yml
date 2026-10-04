@@ -24,12 +24,12 @@ modified: '2026-08-02'
 specificationVersion: '0.23'
 tags:
   - Job
-  - Recruitment
+  - Recruiting
   - Job Search
   - India
   - Employment
   - MCP
-  - agent-native
+  - Agent-Native
   - Developer Tools
 tags_raw:
   - Jobs
@@ -40,6 +40,7 @@ tags_raw:
   - MCP
   - Agent-native
   - Developer Tools
+  - agent-native
 apis:
   - name: Jobvetta REST API
     description: >-
@@ -53,7 +54,7 @@ apis:
     tags:
       - Job
       - Job Search
-      - Recruitment
+      - Recruiting
       - India
     tags_raw:
       - Jobs
@@ -75,7 +76,7 @@ apis:
     baseURL: https://api.jobvetta.com/mcp
     tags:
       - MCP
-      - agent-native
+      - Agent-Native
       - Job
       - India
     tags_raw:
@@ -83,6 +84,7 @@ apis:
       - Agent-native
       - Jobs
       - India
+      - agent-native
     properties:
       - type: MCPServer
         url: https://api.jobvetta.com/mcp
