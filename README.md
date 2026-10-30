@@ -64,40 +64,88 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-API Evangelist catalog entry for [Jobvetta](https://www.jobvetta.com) — live, vetted job openings
-in India, gathered and checked against official employer sources. Available as a REST API and a
-hosted MCP server that share one key.
+Jobvetta is a jobs API for India — live openings gathered and checked against official employer sources, exposed as a REST API and a hosted MCP server that share one key. Search by keyword, Indian city or state, and posting age; fetch full structured detail for a single job. It is India-only by design: non-Indian locations return no results. The MCP server answers tools/list without credentials, so an agent can discover the two tools before signing up, and installation is a single documented `claude mcp add` command. Free during early access, with a shared limit of 50 tool calls per day and up to 20 jobs per search across both surfaces.
 
-| | |
+**Areas:** Job · Recruiting · Job Search · India · Employment · MCP · Agent-Native · Developer Tools
+
+## Jobvetta on APIs.io
+
+Everything profiled for Jobvetta is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/jobvetta/](https://apis.io/providers/jobvetta/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Jobvetta REST API](https://apis.io/apis/jobvetta/jobvetta-rest-api/) — REST access to live, vetted India job openings. `GET /jobs` searches by keyword (`q`), Indian city or state (`location`), posting age in days (`days`,…
+- [Jobvetta MCP Server](https://apis.io/apis/jobvetta/jobvetta-mcp-server/) — Hosted MCP server over Streamable HTTP with two tools — `search_jobs` (q, location, days, limit) and `get_job` (job_id). Discovery is public: tools/list…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [mcp](https://apis.io/servers/jobvetta/mcp/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.jobvetta.com)
+- [Documentation](https://www.jobvetta.com/api)
+- [Sign up](https://www.jobvetta.com/dashboard)
+
+## API Evangelist rating
+
+**Kin Score 7.7** — minimal · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
 |---|---|
-| REST base | `https://api.jobvetta.com/v1` |
-| Auth | Bearer token in the `Authorization` header |
-| MCP | `https://api.jobvetta.com/mcp` — hosted, `tools/list` answers **unauthenticated** |
-| Tools | `search_jobs` (q, location, days, limit) · `get_job` (job_id) |
-| Scope | India only — non-Indian locations return no results |
+| Discoverability | 60.0 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 13.2 |
 
-Free during early access, with a shared limit of 50 tool calls per day and up to 20 jobs per
-search across both surfaces.
+**Agent readiness 8.6** — agent-aware
 
-## Recovered from the parked queue
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
 
-The add-API pipeline parked this submission on 2026-07-24 at confidence 5, reason
-`no_consumable_surface`. That was wrong — the API is live and enforcing auth, and the MCP server
-is hosted and publicly discoverable. What is missing is an OpenAPI: the surface is documented in
-HTML but not specified, and the gate could not see it. Tracked as
-[roadmap#3](https://github.com/api-evangelist/roadmap/issues/3).
+**Regulatory alignment 0.0** — Employment & Payroll
 
-## Known gaps
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/jobvetta/](https://apis.io/providers/jobvetta/).
 
-- **No OpenAPI.** Nothing machine-readable to harvest or generate clients from. The highest-value
-  thing they could add.
-- **No `llms.txt`**, and no MCP server card at `/.well-known/mcp.json` despite the docs mentioning
-  one. Discovery works through `tools/list` alone.
+## How this profile is made
 
-## This is a catalog entry, not Jobvetta
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-This repo is API Evangelist's profile *about* Jobvetta. For the product, an API key, or support,
-go to [jobvetta.com](https://www.jobvetta.com).
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Jobvetta: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-If something here is wrong, open an issue on this repo or in the
-[APIs.io Inbox](https://github.com/api-search/inbox).
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/jobvetta/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
